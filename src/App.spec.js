@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import React from "react";
 import sinon from "sinon";
 
-import App from "./App";
+import App, { SYMBOLS } from "./App";
 import Card from "./Card";
 import GuessCount from "./GuessCount";
 
@@ -27,11 +27,23 @@ describe("<App />", () => {
     expect(onClick).to.have.been.calledWith(0);
   });
 
-  it("should match its reference snapshot", () => {
-    const onClick = sinon.spy();
-    const wrapper = shallow(
-      <Card card="😁" feedback="hidden" index={0} onClick={onClick} />
-    );
-    expect(wrapper).to.matchSnapshot();
-  });
+  // it("should match its reference snapshot", () => {
+  //   const onClick = sinon.spy();
+  //   const wrapper = shallow(
+  //     <Card card="😁" feedback="hidden" index={0} onClick={onClick} />
+  //   );
+  //   expect(wrapper).to.matchSnapshot();
+  // });
+
+  // it("Should match ist reference snapshot", () => {
+  //   const mock = sinon
+  //     .stub(App.prototype, "generateCards")
+  //     .returns([...SYMBOLS]);
+  //   try {
+  //     const wrapper = shallow(<App />);
+  //     expect(wrapper).to.matchSnapshot();
+  //   } finally {
+  //     mock.restore();
+  //   }
+  // });
 });
